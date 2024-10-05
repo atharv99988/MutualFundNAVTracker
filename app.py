@@ -20,8 +20,8 @@ scheduler.add_job(
     id='daily_task',               # Unique ID for the job
     func=scheduled_task,           # Function to be run
     trigger='cron',                # Cron trigger for specific time scheduling
-    hour=8,                        # Set to 8 AM daily
-    minute=0
+    hour=9,                        # Set to 8 AM daily
+    minute=35
 )
 
 scheduler.init_app(app)  # Initialize the scheduler with Flask app
