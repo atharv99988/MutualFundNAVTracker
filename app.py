@@ -2,6 +2,7 @@ from flask import Flask
 from flask_apscheduler import APScheduler
 from datetime import datetime
 from controller import addNAVs
+from model.mutual_fund import getMutualFund
 
 # Define a class for your scheduler configuration
 class Config:
@@ -20,9 +21,11 @@ scheduler.add_job(
     id='daily_task',               # Unique ID for the job
     func=scheduled_task,           # Function to be run
     trigger='cron',                # Cron trigger for specific time scheduling
-    hour=9,                        # Set to 8 AM daily
-    minute=35
+    hour=10,                        # Set to 8 AM daily
+    minute=20
 )
+
+print(getMutualFund())
 
 scheduler.init_app(app)  # Initialize the scheduler with Flask app
 scheduler.start()        # Start the scheduler
